@@ -19,9 +19,8 @@ AI-Powered Football Match Analysis System
 Computer vision system that automatically analyzes football match videos using YOLOv8 and deep learning.  
 Provides player tracking, team assignment, ball tracking, and possession statistics.
 
-![screenshot of video frame](formation-sample.png)
-
 ![formation detection](video-sample.png)
+![screenshot of video frame](formation-sample.png)
 
 ## Features
 
