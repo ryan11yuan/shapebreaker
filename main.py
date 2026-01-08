@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 from team_assigner import TeamAssigner
 from player_ball_assigner import PlayerBallAssigner
+from formation_analyzer import FormationAnalyzer
 
 def main():
     # Read Video
@@ -46,6 +47,41 @@ def main():
             team_ball_control.append(team_ball_control[-1])
     team_ball_control = np.array(team_ball_control)
     
+    # Analyze Formations at First, Middle, and Last frames
+    print("\nAnalyzing formations at first, middle, and last frames...")
+    formation_analyzer = FormationAnalyzer()
+    frame_height, frame_width = video_frames[0].shape[:2]
+    
+    # Analyze Team 1 at 3 time points
+    team1_results = formation_analyzer.analyze_team_formation_over_time(
+        tracks, team_id=1, frame_width=frame_width, frame_height=frame_height
+    )
+    
+    # Analyze Team 2 at 3 time points
+    team2_results = formation_analyzer.analyze_team_formation_over_time(
+        tracks, team_id=2, frame_width=frame_width, frame_height=frame_height
+    )
+    
+    # Save all formation diagrams
+    print("\nTeam 1 Formations:")
+    for formation_name, diagram, lines, label in team1_results:
+        filename = f'output_videos/team1_formation_{label.lower()}.png'
+        cv2.imwrite(filename, diagram)
+        print(f"  {label}: {formation_name} - Saved to {filename}")
+    
+    print("\nTeam 2 Formations:")
+    for formation_name, diagram, lines, label in team2_results:
+        filename = f'output_videos/team2_formation_{label.lower()}.png'
+        cv2.imwrite(filename, diagram)
+        print(f"  {label}: {formation_name} - Saved to {filename}")
+    
+    # Create side-by-side comparisons for each time point
+    for i, label in enumerate(['start', 'middle', 'end']):
+        combined = np.hstack([team1_results[i][1], team2_results[i][1]])
+        cv2.imwrite(f'output_videos/formations_comparison_{label}.png', combined)
+    
+    print("\nAll formation diagrams saved to output_videos/")
+
     # Draw Output
     ## Draw Object Tracks
     output_object_frames = tracker.draw_annotations(video_frames, tracks, team_ball_control)
