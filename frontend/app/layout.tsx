@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "Shapebreaker",
   description: "Upload soccer match footage and get instant team formation analysis with AI-powered insights.",
   icons: {
-    icon: "/shapebreakerlogo.png",
-    shortcut: "/shapebreakerlogo.png",
-    apple: "/shapebreakerlogo.png",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 }
 
