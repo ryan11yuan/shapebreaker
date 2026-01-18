@@ -90,6 +90,21 @@ INPUT_DIR.mkdir(exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
 TEMP_RESULTS_DIR.mkdir(exist_ok=True)
 
+# Startup event to clean temp_results
+@app.on_event("startup")
+async def startup_event():
+    """Clean up temp_results directory on startup."""
+    logger.info("Cleaning up temp_results directory...")
+    if TEMP_RESULTS_DIR.exists():
+        for item in TEMP_RESULTS_DIR.iterdir():
+            if item.is_dir():
+                shutil.rmtree(item)
+                logger.info(f"Deleted temp directory: {item.name}")
+            elif item.is_file():
+                item.unlink()
+                logger.info(f"Deleted temp file: {item.name}")
+    logger.info("Temp results cleanup complete ✓")
+
 # In-memory task storage
 tasks: Dict[str, dict] = {}
 
