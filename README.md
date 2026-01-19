@@ -21,7 +21,6 @@ Full-stack soccer match analysis system combining computer vision and AI to dete
 
 ## Demo video
 
-<video controls src="frontend/public/shapebreakerdemo.mp4" title="Demo"></video>
 
 Demo Site (no functionality since backend hosting required): [frontend](https://shapebreaker-frontend-ijq7.vercel.app/)
 
