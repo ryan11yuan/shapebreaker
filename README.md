@@ -19,6 +19,12 @@ AI-Powered Soccer Tactical Analysis Platform
 
 Full-stack soccer match analysis system combining computer vision and AI to detect formations, track players, and analyze team tactics from match footage.
 
+## Demo video
+
+<video controls src="frontend/public/shapebreakerdemo.mp4" title="Demo"></video>
+
+Demo Site (no functionality since backend hosting required): [frontend](https://shapebreaker-frontend-ijq7.vercel.app/)
+
 ## Features
 
 - **Real-time Formation Detection** - Automatically identifies 4-4-2, 4-3-3, 3-5-2, and more
@@ -83,6 +89,16 @@ Full-stack soccer match analysis system combining computer vision and AI to dete
 4-4-2 • 4-3-3 • 3-5-2 • 4-2-3-1 • 3-4-3 • 5-3-2 • 4-5-1 • 5-4-1 • 3-4-2-1
 
 Custom formations generated for non-standard patterns.
+
+## Next Steps
+
+Add user login with authentication (Supabase, Auth0)
+Add more advanced analytics dashboard that includes things like heat maps, expected goals (xG), etc.
+Multi-camera support - different angles
+Export options (PDF, shareable links, clips)
+Mobile responsive
+Docker Compose
+CI/CD pipeline
 
 ## Author
 

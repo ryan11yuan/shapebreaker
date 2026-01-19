@@ -251,7 +251,7 @@ export function Hero() {
                   Hours of footage. Countless replays. But you're still guessing at formations, 
                   missing tactical shifts, and overlooking the patterns that separate winners from the rest.
                 </p>
-                <p className="text-body-editorial text-foreground/80 leading-relaxed font-medium relative pl-6">
+                <p className="text-body-editorial text-muted-foreground leading-relaxed relative pl-6">
                   <span className="absolute left-0 top-2 w-1 h-1 rounded-full bg-primary" />
                   Traditional analysis is too slow. Too subjective. Too late.
                 </p>
